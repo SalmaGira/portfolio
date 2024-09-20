@@ -9,7 +9,7 @@ const Typography = styled.span`
 
 export default function Home() {
   return (
-    <div className="my-5">
+    <div className="my-5" id="home">
       <div className="text-center">
         <Typography>Hello, I'm Salma Gira.</Typography>
         <br />

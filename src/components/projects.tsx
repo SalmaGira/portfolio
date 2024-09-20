@@ -2,7 +2,7 @@ import { Container } from "react-bootstrap";
 
 const Projects = () => {
   return (
-    <Container className="my-5">
+    <Container className="my-5" id="projects">
       <h1>Projects</h1>
       <p>
         This is where I will be showcasing some of my personal projects. Stay
