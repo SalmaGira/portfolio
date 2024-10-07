@@ -1,4 +1,5 @@
-import { Container } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
+import ProjectDetails from "./projectDetails";
 
 const Projects = () => {
   return (
@@ -15,6 +16,10 @@ const Projects = () => {
           GitHub
         </a>
       </p>
+
+      <Row>
+        <ProjectDetails />
+      </Row>
     </Container>
   );
 };
