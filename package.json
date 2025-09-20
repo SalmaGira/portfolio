@@ -5,10 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "clean": "if exist dist rmdir /s /q dist && if exist .vite rmdir /s /q .vite && del /q tsconfig.*.tsbuildinfo 2>nul || echo Cache cleared",
-    "prebuild": "npm run clean && tsc --noEmit",
+    "prebuild": "tsc --noEmit",
     "build": "tsc -b && vite build",
-    "build:clean": "npm run clean && npm run build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
