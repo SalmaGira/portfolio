@@ -2,11 +2,11 @@ import React from 'react';
 
 import {
   Contact,
-  Home,
-  Layout,
-  Projects,
   Resume,
 } from './components';
+import { Home } from './components/Home';
+import { Layout } from './components/Layout';
+import { Projects } from './components/Projects';
 
 const App: React.FC = () => (
   <Layout>
