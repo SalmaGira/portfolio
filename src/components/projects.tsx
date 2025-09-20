@@ -1,39 +1,45 @@
+import { motion } from 'framer-motion';
 
+import styles from '../styles/global.module.css';
+import ProjectCard from './ProjectCard';
+
+// Example projects (replace with your own!)
 const projects = [
   {
-    name: 'Gatsby Tutorial',
-    description: 'A hands-on tutorial for GatsbyJS.',
-    url: 'https://github.com/SalmaGira/gatsby-tutorial'
+    title: "Realtime Chat App",
+    description: "A modern, secure chat platform with live messaging.",
+    tech: ["React", "TypeScript", "Socket.io"],
+    repoUrl: "https://github.com/SalmaGira/realtime-chat-app",
   },
   {
-    name: 'Realtime Chat App',
-    description: 'A real-time chat application built with React and Firebase.',
-    url: 'https://github.com/SalmaGira/realtime-chat-app'
+    title: "Gatsby Tutorial",
+    description: "Step-by-step Gatsby site for learning JAMstack.",
+    tech: ["Gatsby", "GraphQL"],
+    repoUrl: "https://github.com/SalmaGira/gatsby-tutorial",
   },
   {
-    name: 'Logo Ipsum',
-    description: 'A logo generator and design playground.',
-    url: 'https://github.com/SalmaGira/logoipsum'
-  }
+    title: "Logo Ipsum",
+    description: "SVG logo generator for design inspiration.",
+    tech: ["React", "CSS"],
+    repoUrl: "https://github.com/SalmaGira/logoipsum",
+  },
 ];
 
-function Projects() {
-  return (
-    <section className="projects" id="projects">
-      <h2>Projects</h2>
-      <div className="projects-list">
-        {projects.map((project) => (
-          <div className="project-card" key={project.name}>
-            <h3>{project.name}</h3>
-            <p>{project.description}</p>
-            <a href={project.url} target="_blank" rel="noopener noreferrer">
-              View on GitHub
-            </a>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
+const Projects: React.FC = () => (
+  <motion.section
+    className={styles.projects}
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.7 }}
+    viewport={{ once: true }}
+  >
+    <h2 className={styles.sectionTitle}>Projects</h2>
+    <div className={styles.projectGrid}>
+      {projects.map(p => (
+        <ProjectCard key={p.title} {...p} />
+      ))}
+    </div>
+  </motion.section>
+);
 
 export default Projects;

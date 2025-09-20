@@ -1,20 +1,16 @@
 import React from 'react';
 
 import Contact from './components/Contact';
-import Introduction from './components/Introduction';
+import Home from './components/Home';
 import Layout from './components/Layout';
 import Projects from './components/Projects';
-import Resume from './components/Resume';
 
-function App() {
-  return (
-    <Layout>
-      <Introduction />
-      <Projects />
-      <Resume />
-      <Contact />
-    </Layout>
-  );
-}
+const App: React.FC = () => (
+  <Layout>
+    <Home />
+    <Projects />
+    <Contact />
+  </Layout>
+);
 
 export default App;
