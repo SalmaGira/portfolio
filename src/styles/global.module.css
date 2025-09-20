@@ -163,3 +163,191 @@ main {
     grid-template-columns: 1fr;
   }
 }
+
+/* resume */
+.resumeContact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7em;
+  margin-bottom: 1.8em;
+  background: none;
+}
+.resumeName {
+  font-size: 1.6em;
+  font-weight: bold;
+  color: var(--accent);
+  margin-right: 0.5em;
+}
+.resumeTitle {
+  font-size: 1.15em;
+  color: var(--muted);
+  margin-right: 0.7em;
+}
+.resumeLocation {
+  font-size: 1em;
+  color: var(--muted);
+}
+.resumeContactLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  font-size: 1.05em;
+  margin-top: 0.6em;
+}
+.resumeContactLinks a, .resumeContactLinks span {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  color: var(--text);
+  text-decoration: none;
+}
+.resumeContactLinks a:hover {
+  color: var(--accent);
+}
+.resumeProduct {
+  font-size: 1em;
+  margin-top: 0.3em;
+  color: var(--muted);
+}
+.languageList {
+  margin-top: 0.5em;
+  font-size: 1em;
+  color: var(--text);
+}
+
+.resumeContactCard {
+  background: var(--card-bg);
+  border-radius: 1.3em;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 0.7em;
+  padding: 1.3rem 2rem;
+  margin-bottom: 2em;
+}
+.resumeContactLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2em;
+  margin-top: 0.4em;
+  font-size: 1.07em;
+}
+.resumeContactLinks a, .resumeContactLinks span {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+.resumeContactLinks a:hover {
+  color: var(--text);
+}
+
+.experienceTimeline {
+  position: relative;
+  padding-left: 0.2em;
+  margin-bottom: 2em;
+}
+.experienceTimeline:before {
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--muted);
+  opacity: 0.13;
+}
+.resumeCard {
+  background: var(--card-bg);
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+  padding: 1.1rem 1.7rem;
+  margin-bottom: 1.4rem;
+  position: relative;
+}
+.resumeCardHeader {
+  display: flex;
+  gap: 0.8em;
+  align-items: center;
+  font-weight: 500;
+  margin-bottom: 0.4em;
+  font-size: 1.08em;
+}
+.resumeRole {
+  color: var(--accent);
+}
+.resumeCompany {
+  color: var(--muted);
+}
+.resumePeriod {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 0.97em;
+}
+.resumeDesc ul {
+  margin: 0.4em 0 0.3em 1.1em;
+  padding: 0;
+  font-size: 1em;
+  color: var(--text);
+}
+.resumeProduct {
+  font-size: 0.98em;
+  margin-top: 0.3em;
+  color: var(--muted);
+}
+.skillsGrid {
+  display: flex;
+  gap: 2em;
+  flex-wrap: wrap;
+  margin-bottom: 1.5em;
+}
+.skillCategory {
+  min-width: 160px;
+}
+.skillCategoryHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-weight: 600;
+  color: var(--accent);
+  font-size: 1.1em;
+  margin-bottom: 0.4em;
+}
+.skillCategoryName {
+  text-transform: capitalize;
+}
+.techStack {
+  display: flex;
+  gap: 0.5em;
+  flex-wrap: wrap;
+}
+.techTag {
+  background: var(--muted);
+  color: var(--background);
+  padding: 0.2em 0.7em;
+  border-radius: 0.5em;
+  font-size: 0.97em;
+  font-weight: 500;
+}
+.languageList {
+  margin-top: 0.5em;
+  font-size: 1em;
+  color: var(--text);
+}
+.resumeDownload {
+  display: inline-block;
+  margin-top: 2.2rem;
+  background: var(--accent);
+  color: var(--background);
+  padding: 0.6em 1.4em;
+  border-radius: 0.5em;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.23s;
+}
+.resumeDownload:hover {
+  background: var(--text);
+  color: var(--card-bg);
+}

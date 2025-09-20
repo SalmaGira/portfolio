@@ -4,11 +4,13 @@ import Contact from './components/Contact';
 import Home from './components/Home';
 import Layout from './components/Layout';
 import Projects from './components/Projects';
+import Resume from './components/Resume';
 
 const App: React.FC = () => (
   <Layout>
     <Home />
     <Projects />
+    <Resume />
     <Contact />
   </Layout>
 );
