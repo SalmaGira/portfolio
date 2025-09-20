@@ -52,7 +52,12 @@ main {
   padding: 1rem 2rem;
   text-align: center;
   font-size: 1rem;
-  color: var(--muted);
+  color: var(--background);
+  background: var(--accent);
+  letter-spacing: 0.03em;
+  border-top: 2px solid var(--muted);
+  margin-top: 3rem;
+  box-shadow: 0 -2px 12px rgba(37,99,235,0.08);
 }
 .home {
   max-width: 600px;
