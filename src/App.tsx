@@ -4,9 +4,9 @@ import {
   Contact,
   Resume,
 } from './components';
-import Home from './components/Home.tsx';
-import Layout from './components/Layout.tsx';
-import Projects from './components/Projects.tsx';
+import Home from './components/home.tsx';
+import Layout from './components/layout.tsx';
+import Projects from './components/projects.tsx';
 
 const App: React.FC = () => (
   <Layout>
