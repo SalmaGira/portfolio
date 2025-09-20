@@ -1,10 +1,12 @@
 import React from 'react';
 
-import Contact from './components/Contact';
-import Home from './components/Home';
-import Layout from './components/Layout';
-import Projects from './components/Projects';
-import Resume from './components/Resume';
+import {
+  Contact,
+  Home,
+  Layout,
+  Projects,
+  Resume,
+} from './components';
 
 const App: React.FC = () => (
   <Layout>
