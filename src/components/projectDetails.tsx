@@ -1,8 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { SetStateAction, useState } from "react";
+import { useState } from 'react';
 
 export default function ProjectDetails() {
-  const [projectId, setProjectId] = useState(0);
+  const [projectId] = useState(0);
 
   const projects = [
     {
