@@ -3,7 +3,7 @@ export const personal = {
   title: "Full-Stack Engineer",
   location: "Giza, Egypt",
   email: "salmagira16@gmail.com",
-  linkedin: "https://www.linkedin.com/in/salma-gira-6481aa166/",
+  linkedin: "https://www.linkedin.com/in/salma-gira/",
   github: "https://github.com/SalmaGira",
   phone: "+201128734414",
 };
