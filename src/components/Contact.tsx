@@ -10,7 +10,7 @@ const Contact: React.FC = () => (
   <section className={styles.contact}>
     <h2 className={styles.sectionTitle}>Contact</h2>
     <div className={styles.socialLinks}>
-      <a href="https://www.linkedin.com/in/salma-gira-6481aa166/" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.linkedin.com/in/salma-gira/" target="_blank" rel="noopener noreferrer">
         <FaLinkedin /> LinkedIn
       </a>
       <a href="https://github.com/SalmaGira" target="_blank" rel="noopener noreferrer">

@@ -1,0 +1,14 @@
+Contact: security@yourportfolio.com
+Preferred-Languages: en
+Policy: https://yourportfolio.com/security-policy
+Acknowledgments: https://yourportfolio.com/security-acknowledgments
+
+# Security measures implemented:
+# - Content Security Policy with frame-ancestors 'none'
+# - X-Frame-Options: DENY
+# - Cross-Origin-Opener-Policy: same-origin
+# - Cross-Origin-Embedder-Policy: require-corp
+# - Cross-Origin-Resource-Policy: same-origin
+# - Runtime frame detection and protection
+# - Trusted Types for DOM security
+# - Comprehensive origin isolation
