@@ -4,14 +4,14 @@
 
 # Force HTTPS redirects
 [[redirects]]
-  from = "http://yoursite.netlify.app/*"
-  to = "https://yoursite.netlify.app/:splat"
+  from = "http://keen-moon-snowy.netlify.app/*"
+  to = "https://keen-moon-snowy.netlify.app/:splat"
   status = 301
   force = true
 
 [[redirects]]
-  from = "http://www.yoursite.netlify.app/*"
-  to = "https://yoursite.netlify.app/:splat"
+  from = "http://www.keen-moon-snowy.netlify.app/*"
+  to = "https://keen-moon-snowy.netlify.app/:splat"
   status = 301
   force = true
 

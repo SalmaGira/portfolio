@@ -7,7 +7,7 @@ export default defineConfig({
     react({
       babel: {
         plugins: process.env.NODE_ENV === 'production' 
-          ? [['babel-plugin-transform-remove-prop-types', { removeImport: true }]]
+          ? [['babel-plugin-transform-react-remove-prop-types', { removeImport: true }]]
           : []
       }
     })
