@@ -8,15 +8,29 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: false,
-    minify: 'esbuild', // Use esbuild instead of terser
+    minify: 'esbuild',
     target: 'es2020',
     
-    // Minimal rollup config
+    // Simplified config to prevent circular dependency issues
     rollupOptions: {
       output: {
-        // Single chunk strategy - most reliable
-        manualChunks: undefined
+        // Prevent the module initialization error
+        manualChunks: {
+          'react-core': ['react', 'react-dom'],
+          'ui-libs': ['styled-components', 'framer-motion'],
+          'bootstrap': ['bootstrap', 'react-bootstrap']
+        }
       }
     }
+  },
+  
+  // Fix module resolution
+  resolve: {
+    dedupe: ['react', 'react-dom']
+  },
+  
+  // Optimize dependencies
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'react/jsx-runtime']
   }
 });

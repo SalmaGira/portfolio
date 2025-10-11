@@ -5,23 +5,8 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <!-- Remove all these meta security headers - they don't work -->
-    <!-- 
-    <meta http-equiv="Content-Security-Policy" content="...">
-    <meta http-equiv="Strict-Transport-Security" content="...">
-    <meta http-equiv="X-Frame-Options" content="...">
-    etc.
-    -->
-    
-    <!-- Only keep essential preloads -->
-    <link rel="preload" href="/src/main.tsx" as="script">
-    
-    <!-- Minimal critical CSS -->
-    <style>
-      *{box-sizing:border-box}
-      body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1f2937;background:#ffffff}
-      #root{min-height:100vh}
-    </style>
+    <!-- REMOVE ALL THESE META SECURITY HEADERS -->
+    <!-- They don't work and cause console errors -->
     
     <title>Salma Gira</title>
     <meta name="description" content="Professional portfolio">
