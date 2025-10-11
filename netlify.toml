@@ -2,47 +2,63 @@
   command = "npm run build"
   publish = "dist"
 
-[[headers]]
-  for = "/*"
-  [headers.values]
-    # Fixed CSP that allows data URIs and necessary scripts
-    Content-Security-Policy = "default-src 'self' https: data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https: data: blob:; script-src-elem 'self' 'unsafe-inline' https: data: blob:; style-src 'self' 'unsafe-inline' https: data:; font-src 'self' https: data:; img-src 'self' data: https: blob:; connect-src 'self' https: wss: ws:; frame-ancestors 'none'; upgrade-insecure-requests;"
-    
-    # Working HTTP headers (not meta tags)
-    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
-    X-Frame-Options = "DENY"
-    Cross-Origin-Opener-Policy = "same-origin"
-    Cross-Origin-Embedder-Policy = "credentialless"
-    Cross-Origin-Resource-Policy = "cross-origin"
-    X-Content-Type-Options = "nosniff"
-    X-XSS-Protection = "1; mode=block"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-    
-    # Fixed Permissions Policy
-    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
-    
-    Cache-Control = "public, max-age=31536000, immutable"
+# Force HTTPS redirects
+[[redirects]]
+  from = "http://keen-moon-snowy.netlify.app/*"
+  to = "https://keen-moon-snowy.netlify.app/:splat"
+  status = 301
+  force = true
 
-[[headers]]
-  for = "/*.html"
-  [headers.values]
-    Content-Security-Policy = "default-src 'self' https: data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https: data: blob:; script-src-elem 'self' 'unsafe-inline' https: data: blob:; style-src 'self' 'unsafe-inline' https: data:; font-src 'self' https: data:; img-src 'self' data: https: blob:; connect-src 'self' https: wss: ws:; frame-ancestors 'none'; upgrade-insecure-requests;"
-    Cache-Control = "public, max-age=0, must-revalidate"
+[[redirects]]
+  from = "http://www.keen-moon-snowy.netlify.app/*"
+  to = "https://keen-moon-snowy.netlify.app/:splat"
+  status = 301
+  force = true
 
-[[headers]]
-  for = "/*.js"
-  [headers.values]
-    Cross-Origin-Resource-Policy = "cross-origin"
-    Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/*.css"
-  [headers.values]
-    Cross-Origin-Resource-Policy = "cross-origin"
-    Cache-Control = "public, max-age=31536000, immutable"
-
-# Additional security redirects
+# Security redirect
 [[redirects]]
   from = "/.well-known/security.txt"
   to = "/security.txt"
   status = 301
+
+# Main security headers - SINGLE SET, NO DUPLICATES
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Strict CSP - no data URIs, no frame embedding
+    Content-Security-Policy = "default-src 'self' https:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https: https://fonts.googleapis.com; font-src 'self' https: https://fonts.gstatic.com; img-src 'self' https:; connect-src 'self' https:; frame-ancestors 'none'; upgrade-insecure-requests;"
+    
+    # Strict frame protection
+    X-Frame-Options = "DENY"
+    
+    # Security headers
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    Cross-Origin-Opener-Policy = "same-origin"
+    Cross-Origin-Embedder-Policy = "require-corp"
+    Cross-Origin-Resource-Policy = "same-origin"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    
+    # Cache for assets
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# HTML files - always fresh
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self' https:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https: https://fonts.googleapis.com; font-src 'self' https: https://fonts.gstatic.com; img-src 'self' https:; connect-src 'self' https:; frame-ancestors 'none'; upgrade-insecure-requests;"
+    X-Frame-Options = "DENY"
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Static assets
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Service worker
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
