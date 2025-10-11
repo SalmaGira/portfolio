@@ -1,136 +1,41 @@
 [build]
+  publish = "build"
   command = "npm run build"
-  publish = "dist"
 
-# Force HTTPS redirects
+[dev]
+  command = "npm start"
+  port = 8888
+  targetPort = 3000
+
+[context.production.environment]
+  NODE_ENV = "production"
+
+# Redirect all requests to index.html (for SPAs)
 [[redirects]]
-  from = "http://keen-moon-snowy.netlify.app/*"
-  to = "https://keen-moon-snowy.netlify.app/:splat"
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Enforce HTTPS
+[[redirects]]
+  from = "http://*"
+  to = "https://:splat"
   status = 301
   force = true
 
+# Sitemap and robots.txt
 [[redirects]]
-  from = "http://www.keen-moon-snowy.netlify.app/*"
-  to = "https://keen-moon-snowy.netlify.app/:splat"
-  status = 301
-  force = true
+  from = "/sitemap.xml"
+  to = "/sitemap.xml"
+  status = 200
 
-# Security redirect
 [[redirects]]
-  from = "/.well-known/security.txt"
-  to = "/security.txt"
-  status = 301
+  from = "/robots.txt"
+  to = "/robots.txt"
+  status = 200
 
-# Main security headers - EXPLICIT FRAME BLOCKING
-[[headers]]
-  for = "/*"
-  [headers.values]
-    # Very strict CSP with explicit frame blocking
-    Content-Security-Policy = "default-src 'self' https:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https: https://fonts.googleapis.com; font-src 'self' https: https://fonts.gstatic.com; img-src 'self' https:; connect-src 'self' https:; frame-src 'none'; child-src 'none'; frame-ancestors 'none'; upgrade-insecure-requests;"
-    
-    # Multiple frame blocking headers
-    X-Frame-Options = "DENY"
-    
-    # Security headers
-    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
-    Cross-Origin-Opener-Policy = "same-origin"
-    Cross-Origin-Embedder-Policy = "require-corp"
-    Cross-Origin-Resource-Policy = "same-origin"
-    X-Content-Type-Options = "nosniff"
-    X-XSS-Protection = "1; mode=block"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
-    
-    # Cache for assets
-    Cache-Control = "public, max-age=31536000, immutable"
-
-# HTML files - same strict policy
-[[headers]]
-  for = "/*.html"
-  [headers.values]
-    Content-Security-Policy = "default-src 'self' https:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https: https://fonts.googleapis.com; font-src 'self' https: https://fonts.gstatic.com; img-src 'self' https:; connect-src 'self' https:; frame-src 'none'; child-src 'none'; frame-ancestors 'none'; upgrade-insecure-requests;"
-    X-Frame-Options = "DENY"
-    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
-    Cache-Control = "public, max-age=0, must-revalidate"
-    
-    # Preload critical resources
-    Link = "</assets/main.css>; rel=preload; as=style, </assets/main.js>; rel=preload; as=script"
-
-# Images - SEO optimized caching
-[[headers]]
-  for = "/*.jpg"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-    Vary = "Accept-Encoding"
-
-[[headers]]
-  for = "/*.jpeg"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-    Vary = "Accept-Encoding"
-
-[[headers]]
-  for = "/*.png"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-    Vary = "Accept-Encoding"
-
-[[headers]]
-  for = "/*.webp"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-    Vary = "Accept-Encoding"
-
-[[headers]]
-  for = "/*.svg"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-    Vary = "Accept-Encoding"
-
-# CSS & JS - Performance optimization
-[[headers]]
-  for = "/assets/*.css"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-    Content-Type = "text/css; charset=utf-8"
-    Vary = "Accept-Encoding"
-
-[[headers]]
-  for = "/assets/*.js"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-    Content-Type = "application/javascript; charset=utf-8"
-    Vary = "Accept-Encoding"
-
-# Fonts - SEO performance
-[[headers]]
-  for = "/*.woff2"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-    Access-Control-Allow-Origin = "*"
-
-[[headers]]
-  for = "/*.woff"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-    Access-Control-Allow-Origin = "*"
-
-# Service worker - Always fresh for SEO updates
-[[headers]]
-  for = "/sw.js"
-  [headers.values]
-    Cache-Control = "public, max-age=0, must-revalidate"
-
-# Sitemap - SEO critical
-[[headers]]
-  for = "/sitemap.xml"
-  [headers.values]
-    Content-Type = "application/xml; charset=utf-8"
-    Cache-Control = "public, max-age=3600"
-
-# Robots.txt - SEO critical
-[[headers]]
-  for = "/robots.txt"
-  [headers.values]
-    Content-Type = "text/plain; charset=utf-8"
-    Cache-Control = "public, max-age=3600"
+# Custom 404 page
+[[redirects]]
+  from = "/404"
+  to = "/404.html"
+  status = 404
