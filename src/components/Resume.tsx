@@ -1,28 +1,21 @@
 import { motion } from 'framer-motion';
 import {
-  FaCloud,
-  FaCode,
   FaEnvelope,
   FaGithub,
   FaLinkedin,
   FaPhone,
-  FaServer,
 } from 'react-icons/fa';
 
 import {
+  activities,
   education,
   experience,
   languages,
   personal,
   skills,
+  summary,
 } from '../data/resume';
 import styles from '../styles/global.module.css';
-
-const skillCategoryIcons = {
-  frontend: <FaCode />,
-  backend: <FaServer />,
-  devops: <FaCloud />,
-};
 
 const Resume: React.FC = () => (
   <motion.section
@@ -46,6 +39,13 @@ const Resume: React.FC = () => (
         <span><FaPhone /> {personal.phone}</span>
       </div>
     </div>
+
+    {summary && (
+      <div className={styles.resumeGroup}>
+        <h3>Summary</h3>
+        <p>{summary}</p>
+      </div>
+    )}
 
     <div className={styles.resumeGroup}>
       <h3>Experience</h3>
@@ -88,18 +88,8 @@ const Resume: React.FC = () => (
       </ul>
 
       <h3>Tools & Skills</h3>
-      <div className={styles.skillsGrid}>
-        {Object.entries(skills).map(([category, skillList]) => (
-          <div key={category} className={styles.skillCategory}>
-            <div className={styles.skillCategoryHeader}>
-              {skillCategoryIcons[category as keyof typeof skillCategoryIcons]}{" "}
-              <span className={styles.skillCategoryName}>{category.charAt(0).toUpperCase() + category.slice(1)}</span>
-            </div>
-            <div className={styles.techStack}>
-              {skillList.map(s => <span key={s} className={styles.techTag}>{s}</span>)}
-            </div>
-          </div>
-        ))}
+      <div className={styles.techStack}>
+        {skills.map(s => <span key={s} className={styles.techTag}>{s}</span>)}
       </div>
 
       <h3>Languages</h3>
@@ -108,6 +98,18 @@ const Resume: React.FC = () => (
           <li key={l.name}><b>{l.name}:</b> {l.proficiency}</li>
         ))}
       </ul>
+
+      {activities && activities.length > 0 && (
+        <>
+          <h3>Activities</h3>
+          <ul className={styles.languageList}>
+            {activities.map(activity => (
+              <li key={activity}>{activity}</li>
+            ))}
+          </ul>
+        </>
+      )}
+
       <a
         href="/SalmaGira-resume.pdf"
         target="_blank"
