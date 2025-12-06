@@ -4,10 +4,26 @@ Welcome! This is my personal portfolio, built with React, TypeScript, and Vite, 
 
 ---
 
+## 📝 Recent Updates
+
+### December 2024
+- Updated profile information with new portfolio URL and contact details
+- Enhanced resume with comprehensive skills list including JavaScript, TypeScript, Python, React, Next.js, Flask, Node.js, and more
+- Added professional summary highlighting fullstack engineering expertise
+- Replaced sample projects with achievement cards showcasing professional accomplishments:
+  - Led LIPS Website Rebuild
+  - Scalable Front-end for UK Healthcare Platform
+  - Secure Authentication & Media Handling
+  - AI Backend Integration & System Optimization
+- Updated education to B.Sc. Computer Engineering, Cairo University
+- Added activities section (Toastmasters International, University student activities)
+
+---
+
 ## 🚀 Overview
 
-A modern, responsive portfolio for Salma Gira, Full-Stack Engineer.  
-Features a clean design, animated sections, project cards, organized resume, and easy contact options.
+A modern, responsive portfolio for Salma Gira, Software Engineer.  
+Features a clean design, animated sections, achievement cards, organized resume, and easy contact options.
 
 ---
 
