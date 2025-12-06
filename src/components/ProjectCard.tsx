@@ -6,7 +6,7 @@ interface ProjectProps {
   title: string;
   description: string;
   tech: string[];
-  repoUrl: string;
+  repoUrl?: string;
 }
 
 const ProjectCard: React.FC<ProjectProps> = ({ title, description, tech, repoUrl }) => (
@@ -18,9 +18,11 @@ const ProjectCard: React.FC<ProjectProps> = ({ title, description, tech, repoUrl
         <span key={t} className={styles.techTag}>{t}</span>
       ))}
     </div>
-    <a href={repoUrl} target="_blank" rel="noopener noreferrer" className={styles.ghLink}>
-      <FaGithub /> GitHub
-    </a>
+    {repoUrl && (
+      <a href={repoUrl} target="_blank" rel="noopener noreferrer" className={styles.ghLink}>
+        <FaGithub /> GitHub
+      </a>
+    )}
   </div>
 );
 
