@@ -30,7 +30,7 @@ const projects = [
   },
   {
     title: "AI Backend Integration & System Optimization",
-    description: "Architected integration between AI backend and UI using message queues, configured Firebase for real-time features, and implemented performance optimizations that improved workflow speed by ~120% through DB and network improvements.",
+    description: "Architected integration between AI backend and UI using message queues, configured Firebase for real-time features, and implemented performance optimizations that improved workflow speed by ~120% through database and network improvements.",
     tech: ["AI Integration", "Firebase", "Performance"],
   },
 ];
