@@ -3,7 +3,7 @@ export const personal = {
   title: "Software Engineer",
   location: "Giza, Egypt",
   email: "salmagira16@gmail.com",
-  linkedin: "https://linkedin.com/in/salma-gira",
+  linkedin: "https://www.linkedin.com/in/salma-gira",
   github: "https://github.com/SalmaGira",
   phone: "+201128734414",
   portfolio: "https://keen-moon-snowy.netlify.app/",
