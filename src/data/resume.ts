@@ -1,24 +1,40 @@
 export const personal = {
   name: "Salma Gira",
-  title: "Full-Stack Engineer",
+  title: "Software Engineer",
   location: "Giza, Egypt",
   email: "salmagira16@gmail.com",
-  linkedin: "https://www.linkedin.com/in/salma-gira/",
+  linkedin: "https://linkedin.com/in/salma-gira",
   github: "https://github.com/SalmaGira",
   phone: "+201128734414",
+  portfolio: "https://keen-moon-snowy.netlify.app/",
+  summary: "Fullstack software engineer with experience designing scalable web architectures, performance optimization, and secure integrations. Skilled in React, Next.js, TypeScript, Python, Flask, Node.js, CI/CD, and cloud services.",
 };
 
-export const skills = {
-  frontend: [
-    "ReactJS", "NextJS", "Tailwind", "JS/TS", "Figma", "Canva", "Bootstrap"
-  ],
-  backend: [
-    "Python", "PostgreSQL", "SQLAlchemy", "Firebase", "ElasticSearch"
-  ],
-  devops: [
-    "CI/CD", "Netlify"
-  ],
-};
+export const skills = [
+  "JavaScript",
+  "TypeScript",
+  "Python",
+  "SQL",
+  "React",
+  "Next.js",
+  "Flask",
+  "Node.js",
+  "REST APIs",
+  "Profiling",
+  "Performance Optimization",
+  "Debugging",
+  "CI/CD",
+  "Docker",
+  "Git",
+  "Firebase",
+  "PostgreSQL",
+  "ElasticSearch",
+  "Agile/Scrum",
+  "TDD",
+  "Unit Testing",
+  "Clean Code",
+  "Design Patterns",
+];
 
 export const experience = [
   {
@@ -63,8 +79,8 @@ export const experience = [
 
 export const education = [
   {
-    degree: "Bachelor’s Degree",
-    school: "Faculty of Engineering, Cairo University, Computer Department",
+    degree: "B.Sc. Computer Engineering",
+    school: "Cairo University",
     period: "2021",
   },
 ];
@@ -72,6 +88,11 @@ export const education = [
 export const languages = [
   {
     name: "English",
-    proficiency: "Proficient (conversational, reading, and writing)",
+    proficiency: "Proficient",
   },
+];
+
+export const activities = [
+  "Toastmasters International",
+  "University student activities",
 ];
