@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://keen-moon-snowy.netlify.app/sitemap.xml
+
+# Disallow admin areas
+Disallow: /.netlify/
+Disallow: /_netlify/
